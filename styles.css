@@ -1,0 +1,52 @@
+:root {
+    --color-holb: #ff6565;
+}
+
+* {
+    border: .5px solid red;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    height: 80px;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 5px;
+    /* list-style: none; */
+}
+
+.hero {
+    background-image: "headphones/i";
+}
+
+/* max screen size of 480 px */
+@media only screen and (max-width: 480px) {
+
+}
+
+/* screen size between 480 and 768 */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* screen size of 992 or more */
+@media only screen and (min-width: 992px) {
+
+}
