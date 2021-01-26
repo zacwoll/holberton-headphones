@@ -1,5 +1,6 @@
 :root {
     --color-holb: #ff6565;
+    --font-family: source-sans-pro, spin-cycle-ot, Arial;
 }
 
 * {
@@ -7,15 +8,44 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: source-sans-pro;
+    src: url(fonts/source-sans-pro/SourceSansPro-Regular.otf);
+}
+
+@font-face {
+    font-family: spin-cycle-ot;
+    src: url(fonts/spincycle_ot/spincycle_ot.otf);
+}
+
+/* After 620px revert menu to desktop-tablet */
+@media screen and (min-width: 620px) {
+    header .menu-cb,
+    header .menu-button {
+        display: none;
+    }
+}
+
+
 header {
+    /* background needs to be transparent */
+    background: transparent;
+    /* position needs to be abs to keep it at the top of the page */
+    position: absolute;
+    /* width needs to be max to stretch to other side */
+    width: 100%;
+
+    /* flexing the childen */
     display: flex;
     justify-content: space-between;
-    background-color: bisque;
-    height: 80px;
     align-items: center;
+
+    /* color of text */
+    color: #FFFFFF;
 }
 
 body {
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
 }
@@ -32,17 +62,94 @@ body {
     /* list-style: none; */
 }
 
-/* maybe move the stuff into a container */
-.hero {
-    height: 800px;
-    background-image: url("images/headphones_hero_1.jpg");
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    /* text-align: center; */
+a {
+    text-decoration: none;
 }
 
+/* the first section */
+.hero {
+    /* no idea how to handle the mobile height */
+    height: 800px;
+    background-image: url("images/headphones_hero_1.jpg");
+    background-position: center;
+}
+
+.hero-body {
+    /* max-width of the text-box */
+    max-width: 637px;
+    height: 35%;
+
+    /* making the text box center horizontally */
+    position: relative;
+    top: 50%;
+    margin: auto;
+
+    /* making the children of the text-box flex */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+/* styling the hero button */
+.hero button {
+    border-radius: 22px;
+    border-style: none;
+    height: 44px;
+    width: 162px;
+    color: #FFFFFF;
+    background-color: var(--color-holb);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+
+    /* reasonable space between button and text */
+    /* change to 6.5% for mobile */
+    margin-bottom: 8%;
+}
+
+/* After 620px revert menu to desktop-tablet */
+@media screen and (min-width: 620px) {
+    .hero button {
+        margin-bottom: 6.5%;
+    }
+}
+
+.hero p {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
 
 
 /* max screen size of 480 px */
