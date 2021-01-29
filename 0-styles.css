@@ -1,0 +1,271 @@
+:root {
+    --color-holb: #ff6565;
+    --color-white: #FFFFFF;
+    --font-family: 'source-sans-pro', 'spin-cycle-ot', Arial;
+}
+
+* {
+    /* border: .5px solid red; */
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'source-sans-pro';
+    src: url(fonts/source-sans-pro/SourceSansPro-Regular.otf);
+}
+
+@font-face {
+    font-family: 'spin-cycle-ot';
+    src: url(fonts/spincycle_ot/spincycle_ot.otf);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+/* the first section */
+.hero {
+    /* no idea how to handle the mobile height */
+    height: 800px;
+    background-image: url("images/headphones_hero_1.jpg");
+    background-position: center;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /* 450 > width = 90% > 1000px */
+    /* this keeps the content centered instead of stretching 
+    to ultrawide screen size */
+    height: 86%;
+    width: 90%;
+    min-width: 450px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+header {
+    width: 100%;
+
+    /* flexing the childen */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* color of text */
+    color: #FFFFFF;
+}
+
+/* always hide the checkbox */
+header .menu-cb {
+    display: none;
+}
+
+header .menu-button {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+
+    .hero {
+        background-position-x: -400px;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header .menu-button {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    header .menu-button {
+        position: absolute;
+        /* this places the navicon exactly where the header starts,
+        but doesn't allow it to be flexed into a column */
+        left: 5%;
+        /* the page is typically 800px high
+        the padding from the previous element is 3%
+        the logo is 16px high
+        top = 3% of 800 + .75 * 16 = 36px, which places the hamburger 
+        about aligned with the bottom of the text on the logo */
+        top: 36px;
+        display: block;
+    }
+
+    header .menu-button .navicon {
+        background: var(--color-white);
+        display: block;
+        border-radius: 5px;
+        width: 1.33rem;
+        height: 0.25rem;
+        position: relative;
+        transition: background .2s ease-out;
+    }
+
+    header .menu-button .navicon::before,
+    header .menu-button .navicon::after {
+        content: '';
+        display: block;
+        border-radius: 5px;
+        width: 2rem;
+        height: 100%;
+        position: absolute;
+        background: var(--color-white);
+        transition: all 0.2s ease-out;
+    }
+
+    header .menu-button .navicon::before {
+        top: .7rem;
+    }
+
+    header .menu-button .navicon::after {
+        top: -.7rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon {
+        width: 0;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-cb:checked ~ nav {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+    .hero-body {
+        height: 56%;
+    }
+}
+
+.nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.nav-links li a:hover,
+.nav-links li a:active {
+    color: var(--color-holb);
+}
+
+header img {
+    height: 32px;
+}
+
+
+
+.hero-body {
+    /* max-width of the text-box */
+    max-width: 637px;
+    height: 40%;
+
+    /* making the text box center horizontally */
+    /* position: relative;
+    top: 46%;
+    margin: auto; */
+
+    /* making the children of the text-box flex */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+/* styling the hero button */
+button {
+    outline: none;
+    border-radius: 22px;
+    border-style: none;
+    height: 44px;
+    width: 162px;
+    color: #FFFFFF;
+    background-color: var(--color-holb);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.hero button {
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}

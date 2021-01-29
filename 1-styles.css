@@ -258,13 +258,6 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* After 500px revert menu to desktop-tablet */
-@media screen and (min-width: 500px) {
-    .hero button {
-        /* margin-bottom: 6.5%; */
-    }
-}
-
 .hero p {
     font-family: var(--font-family);
     font-style: normal;
@@ -277,18 +270,83 @@ button:hover {
     margin: 0 auto;
 }
 
-
-/* max screen size of 480 px */
-@media only screen and (max-width: 480px) {
-
+/* What we do / Services */
+.services {
+    display: flex;
+    justify-content: center;
 }
 
-/* screen size between 480 and 768 */
-@media only screen and (min-width: 600px) {
-
+.services-container {
+    margin: 11% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 800px;
 }
 
-/* screen size of 992 or more */
-@media only screen and (min-width: 992px) {
+.services-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    row-gap: 40px;
+    max-width: 637px;
+    /* margin: 11% 0; */
+}
 
+.services-header h1,
+.services-header p {
+    margin: 0;
+    padding: 0;
+}
+
+.services-body {
+    text-align:center;
+}
+
+.services-body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 96px;
+    column-gap: 58px;
+    width: 472px;
+}
+
+@media screen and (max-width: 1280) {
+    .services-body ul {
+        width: 1002px;
+    }
+}
+
+.services-body ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    width: 207px;
+}
+
+[class^="holberton_school-icon-"] {
+    font-size: 6rem;
+    color: var(--color-holb);
+}
+
+.services-body ul li h2,
+.services-body ul li p {
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
+}
+
+.services-body ul li h2 {
+    font-size: 18px;
+}
+
+.services-body ul li p {
+    font-size: 14px;
 }
