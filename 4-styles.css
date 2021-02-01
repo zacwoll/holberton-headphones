@@ -1,0 +1,583 @@
+:root {
+    --color-holb: #ff6565;
+    --color-white: #FFFFFF;
+    --font-family: 'source-sans-pro', 'spin-cycle-ot', Arial;
+    --content-width-small: 90%;
+}
+
+* {
+    /* border: .5px solid red; */
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'source-sans-pro';
+    src: url(fonts/source-sans-pro/SourceSansPro-Regular.otf);
+}
+
+@font-face {
+    font-family: 'spin-cycle-ot';
+    src: url(fonts/spincycle_ot/spincycle_ot.otf);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+/* the first section */
+.hero {
+    /* no idea how to handle the mobile height */
+    height: 800px;
+    background-image: url("images/headphones_hero_1.jpg");
+    background-position: center;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /* 450 > width = 90% > 1000px */
+    /* this keeps the content centered instead of stretching 
+    to ultrawide screen size */
+    height: 86%;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+header {
+    width: 100%;
+
+    /* flexing the childen */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* color of text */
+    color: #FFFFFF;
+}
+
+/* always hide the checkbox */
+header .menu-cb {
+    display: none;
+}
+
+header .menu-button {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+
+    .hero {
+        background-position-x: -400px;
+    }
+
+    .hero-body {
+        height: 60%;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header .menu-button {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    header .menu-button {
+        position: absolute;
+        /* this places the navicon exactly where the header starts,
+        but doesn't allow it to be flexed into a column */
+        left: 5%;
+        /* the page is typically 800px high
+        the padding from the previous element is 3%
+        the logo is 16px high
+        top = 3% of 800 + .75 * 16 = 36px, which places the hamburger 
+        about aligned with the bottom of the text on the logo */
+        top: 36px;
+        display: block;
+    }
+
+    header .menu-button .navicon {
+        background: var(--color-white);
+        display: block;
+        border-radius: 5px;
+        width: 1.33rem;
+        height: 0.25rem;
+        position: relative;
+        transition: background .2s ease-out;
+    }
+
+    header .menu-button .navicon::before,
+    header .menu-button .navicon::after {
+        content: '';
+        display: block;
+        border-radius: 5px;
+        width: 2rem;
+        height: 100%;
+        position: absolute;
+        background: var(--color-white);
+        transition: all 0.2s ease-out;
+    }
+
+    header .menu-button .navicon::before {
+        top: .7rem;
+    }
+
+    header .menu-button .navicon::after {
+        top: -.7rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon {
+        width: 0;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .menu-cb:checked ~ .menu-button .navicon::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-cb:checked ~ nav {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+
+.nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.nav-links li a:hover,
+.nav-links li a:active {
+    color: var(--color-holb);
+}
+
+header img {
+    height: 32px;
+}
+
+.hero-body {
+    /* max-width of the text-box */
+    max-width: 637px;
+    height: 60%;
+
+    /* making the text box center horizontally */
+    /* position: relative;
+    top: 46%;
+    margin: auto; */
+
+    /* making the children of the text-box flex */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width: 700px) {
+    .hero-body {
+        height: 40%;
+    }
+}
+
+.hero h1 {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+/* styling the hero button */
+button {
+    outline: none;
+    border-radius: 22px;
+    border-style: none;
+    height: 44px;
+    width: 162px;
+    color: #FFFFFF;
+    background-color: var(--color-holb);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.hero button {
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+
+    margin: 0 auto;
+}
+
+/* What we do / Services */
+.services {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin: 125px auto 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 86%;
+}
+
+@media screen and (min-width: 768) {
+    .container {
+        margin-top: 141px;
+    }
+}
+
+.services-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    row-gap: 40px;
+    max-width: 637px;
+    margin-bottom: 110px;
+    /* margin: 11% 0; */
+}
+
+.services-header h1,
+.services-header p {
+    margin: 0;
+    padding: 0;
+}
+
+.services-header p {
+    line-height: 26px;
+}
+
+.services-body {
+    text-align:center;
+}
+
+.services-body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 96px;
+    column-gap: 58px;
+    width: 472px;
+}
+
+@media screen and (max-width: 500px) {
+    .services-body ul {
+        width: 207px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .services-body ul {
+        width: 1002px;
+    }
+}
+
+.services-body ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    width: 207px;
+}
+
+[class^="holberton_school-icon-"] {
+    font-size: 6rem;
+    color: var(--color-holb);
+}
+
+.services-body ul li h2,
+.services-body ul li p {
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
+}
+
+.services-body ul li h2 {
+    font-size: 18px;
+    margin: 13px 0;
+}
+
+.services-body ul li p {
+    font-size: 14px;
+}
+
+/* Our Results */
+.results {
+    background-image: url(images/headphones_hero_2.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.results-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    row-gap: 40px;
+    max-width: 637px;
+    margin-bottom: 110px;
+}
+
+.results-header h1,
+.results-header p {
+    margin: 0;
+    padding: 0;
+    color: var(--color-white);
+}
+
+.results-header p {
+    line-height: 26px;
+}
+
+.results-body {
+    text-align:center;
+}
+
+.results-body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 96px;
+    column-gap: 58px;
+    width: 472px;
+}
+
+@media screen and (max-width: 500px) {
+    .results-body ul {
+        width: 207px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .results-body ul {
+        width: 1002px;
+    }
+}
+
+/* I think the best thing to do actually is use the z-index
+of the pentagone to put it behind everything else, and then
+use a container for the body of the card */
+.results-body ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    /* for this pentagone I need it to be 190x190 with 18px of 
+    margin between the bottom of the shape and the bottom of the 
+    box it's in, so I moved the picture into a div with 172px height
+    and here the parent is 190px */
+    height: 190px;
+}
+
+.pentagone {
+    background-image: url(images/pentagone.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    width: 190px;
+    height: 172px;
+}
+
+.pentagone-body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin: 70px 39px 48px 39px;
+}
+
+.results-body ul li h2,
+.results-body ul li p {
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
+    color: var(--color-white);
+}
+
+/* I think the right answer here is putting the h2 and the p
+in a card-body type of container and setting the margins on that
+but I'm somewhat locked into what I have right now, I'll just put
+it up for refactoring */
+/* (because I need a margin-top of 70px and a left-right of 39px) */
+.results-body ul li h2 {
+    font-size: 46px;
+}
+
+.results-body ul li p {
+    font-size: 14px;
+}
+
+/* Contact Us
+============================================*/
+/* 335 x 373 */
+.contact-container {
+    margin: 110px auto 130px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 56px;
+    align-items: center;
+    max-width: 335px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    border: none;
+    row-gap: 45px;
+}
+
+.form-field {
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-white);
+}
+
+.contact-container h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.form-field-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px
+}
+
+.underline {
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #071629;
+    opacity: 0.17;
+}
+
+
+.form-field .form-help {
+    margin: 0;
+    font-size: 12px;
+    max-height: 0;
+    transition: 0.3s;
+    overflow: hidden; 
+  }
+
+input {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    font-family: var(--font-family);
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+
+/* If I put the form in its own container
+with a width of 100% and a row-gap of 45px,
+I can make the parent container flex with
+justify-content: space-between;
+
+/* Helpers
+    ============================= */
+
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
