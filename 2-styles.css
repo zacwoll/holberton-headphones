@@ -280,13 +280,19 @@ button:hover {
     justify-content: center;
 }
 
-.services-container {
-    margin: 25% auto;
+.container {
+    margin: 125px auto 100px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 86%;
+}
+
+@media screen and (min-width: 768) {
+    .container {
+        margin-top: 141px;
+    }
 }
 
 .services-header {
@@ -374,15 +380,6 @@ button:hover {
     background-size: cover;
     display: flex;
     justify-content: center;
-}
-
-.results-container {
-    margin: 25% auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 86%;
 }
 
 .results-header {
@@ -481,7 +478,6 @@ it up for refactoring */
 /* (because I need a margin-top of 70px and a left-right of 39px) */
 .results-body ul li h2 {
     font-size: 46px;
-    margin-top: 70px;
 }
 
 .results-body ul li p {
