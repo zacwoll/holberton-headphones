@@ -41,7 +41,7 @@ body {
     align-items: center;
 
     /* 450 > width = 90% > 1000px */
-    /* this keeps the content centered instead of stretching 
+    /* this keeps the content centered instead of stretching
     to ultrawide screen size */
     height: 86%;
     width: 90%;
@@ -99,7 +99,7 @@ header .menu-button {
         /* the page is typically 800px high
         the padding from the previous element is 3%
         the logo is 16px high
-        top = 3% of 800 + .75 * 16 = 36px, which places the hamburger 
+        top = 3% of 800 + .75 * 16 = 36px, which places the hamburger
         about aligned with the bottom of the text on the logo */
         top: 36px;
         display: block;
@@ -432,15 +432,15 @@ button:hover {
 }
 
 /* I think the best thing to do actually is use the z-index
-of the pentagone to put it behind everything else, and then
+of the pentagon to put it behind everything else, and then
 use a container for the body of the card */
 .results-body ul li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    /* for this pentagone I need it to be 190x190 with 18px of 
-    margin between the bottom of the shape and the bottom of the 
+    /* for this pentagon I need it to be 190x190 with 18px of
+    margin between the bottom of the shape and the bottom of the
     box it's in, so I moved the picture into a div with 172px height
     and here the parent is 190px */
     height: 190px;
