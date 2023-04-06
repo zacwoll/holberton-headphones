@@ -1,4 +1,4 @@
-# Headphones by Holberton ![Holberton Logo](https://intranet.hbtn.io/assets/holberton-logo-full-default-9c9d1742abc6ffb045e9b4af78ba85770bf39126bcf2c43af9d6a53ee4aabd3d.png)
+# Headphones by Holberton <img src="https://intranet.hbtn.io/assets/holberton-logo-full-default-9c9d1742abc6ffb045e9b4af78ba85770bf39126bcf2c43af9d6a53ee4aabd3d.png" alt="Holberton Logo" width="25" height="25">
 Headphones by Holberton is a responsive and accessible web page designed and developed from scratch, showcasing the company's products and services. The project demonstrates proficiency in HTML, CSS, accessibility, and responsive design.
 
 ## Table of Contents
